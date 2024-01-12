@@ -1,28 +1,3 @@
-import os
-from dotenv import load_dotenv
-import requests
-import json
-
-
-def main():
-    load_dotenv()
-
-    client_secret = os.environ.get('CALIX_CLIENT_SECRET')
-    client_id = os.environ.get('CALIX_CLIENT_ID')
-    username = os.environ.get('CALIX_USERNAME')
-    password = os.environ.get('CALIX_PASSWORD')
-
-    calix = Calix(client_id)
-
-    calix.token(client_id, client_secret, username, password)
-    # response = calix.subscribers(_id='cb6b529e-d9a4-4186-bb57-ba7d91cd67eb')
-    response = calix.subscribers(_id='73112a48-f6e6-4ef7-b58a-fd56ddce3418')
-
-    print(json.dumps(response, indent=4))
-
-    print(calix.access_token)
-    print(calix.headers)
-
 class Calix:
     def __init__(self, client_id):
         self.access_token: str
@@ -62,6 +37,8 @@ class Calix:
         # https://developers.calix.com/api/subscriber-service#/Subscriber/get_subscribers
         url = self.base_url + '/billing/subscribers'
 
+        print(kwargs)
+
         if kwargs.get('_id'):
             url += '/' + kwargs.get('_id')
         else:
@@ -82,9 +59,3 @@ class Calix:
             print(self.headers)
             print('URL: ' + url)
             return False
-
-
-
-if __name__ == '__main__':
-    main()
-
