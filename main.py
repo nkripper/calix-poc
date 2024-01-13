@@ -14,7 +14,7 @@ def main():
 
     calix = Calix(client_id, client_secret, username, password)
 
-    response = calix.subscribers(_id='cb6b529e-d9a4-4186-bb57-ba7d91cd67eb')
+    response = calix.subscribers()
     print(json.dumps(response, indent=4, sort_keys=True))
 
     # {
