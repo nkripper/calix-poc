@@ -15,9 +15,22 @@ def main():
     calix = Calix(client_id, client_secret, username, password)
 
     response = calix.subscribers(_id='cb6b529e-d9a4-4186-bb57-ba7d91cd67eb')
-    response = calix.devices('cb6b529e-d9a4-4186-bb57-ba7d91cd67eb')
+    print(json.dumps(response, indent=4, sort_keys=True))
 
-    print(json.dumps(response, indent=4))
+    # {
+    #     "_id": "cb6b529e-d9a4-4186-bb57-ba7d91cd67eb",
+    #     "account": "LS Networks - Vancouver Office",
+    #     "devices": [
+    #         "CXNK0161FAB2"
+    #     ],
+    #     "email": "",
+    #     "highValue": false,
+    #     "name": "LS Networks - Vancouver Office",
+    #     "phone": "",
+    #     "serviceAddress": "",
+    #     "services": [],
+    #     "subscriberLocationId": "VANCWALS"
+    # }
 
 
 if __name__ == '__main__':
