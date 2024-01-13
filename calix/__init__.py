@@ -1,2 +1,1 @@
-
-from calix import Calix
+from .calix import Calix
