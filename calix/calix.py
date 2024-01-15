@@ -111,4 +111,3 @@ class Calix:
             print(self.headers)
             print('URL: ' + url)
             return False
-
