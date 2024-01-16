@@ -23,7 +23,6 @@ class Calix:
 
     def send_request(self, url, method='get', data=None):
         request_method = getattr(requests, method)
-        print(data)
         response = request_method(url, data=data, headers=self.headers)
 
         if response.status_code == 200:
