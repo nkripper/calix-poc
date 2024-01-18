@@ -1,5 +1,6 @@
 import requests
 import time
+from urllib.parse import urlencode
 
 
 class Calix:
@@ -76,10 +77,11 @@ class Calix:
         if kwargs.get('_id'):
             url += '/' + kwargs.get('_id')
         else:
-            url += '?'
+            query_string = urlencode(kwargs)
+            url += f'?{query_string}'
 
-            for key, value in kwargs.items():
-                url += f'&{key}={value}'
+            # for key, value in kwargs.items():
+            #    url += f'&{key}={value}'
 
         response = self.send_request(url)
 
