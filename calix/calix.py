@@ -80,9 +80,6 @@ class Calix:
             query_string = urlencode(kwargs)
             url += f'?{query_string}'
 
-            # for key, value in kwargs.items():
-            #    url += f'&{key}={value}'
-
         response = self.send_request(url)
 
         return response
